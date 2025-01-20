@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: k8s_pod_cpu_stressor
+  IMAGE_NAME: victorcodesseira/k8s_pod_cpu_stressor
 
 jobs:
   build:
