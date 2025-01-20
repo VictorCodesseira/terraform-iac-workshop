@@ -4,6 +4,7 @@ on:
     branches: [ "main" ]
     paths:
       - "example/images/k8s_pod_cpu_stressor/**"
+  workflow_dispatch:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
