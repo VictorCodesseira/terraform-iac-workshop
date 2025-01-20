@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "example/images/k8s-pod-cpu-stressor/**"
+      - "example/images/k8s_pod_cpu_stressor/**"
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -43,7 +43,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v6
         with:
-          context: example/images/k8s-pod-cpu-stressor
+          context: example/images/k8s_pod_cpu_stressor
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
