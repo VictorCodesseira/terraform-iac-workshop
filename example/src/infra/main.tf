@@ -33,4 +33,6 @@ module "application" {
     repo_url        = "https://github.com/VictorCodesseira/terraform-iac-workshop.git"
     path            = "example/manifests/application"
   }
+
+  auto_sync = false
 }

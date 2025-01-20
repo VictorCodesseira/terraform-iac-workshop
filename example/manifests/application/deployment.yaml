@@ -22,6 +22,6 @@ spec:
           - "-forever"
         resources:
           limits:
-            cpu: "300m"
+            cpu: "400m"
           requests:
-            cpu: "100m"
+            cpu: "200m"
