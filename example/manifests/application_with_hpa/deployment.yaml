@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: cpu-stressor
-        image: narmidm/k8s-pod-cpu-stressor:latest
+        image: ghcr.io/victorcodesseira/k8s_pod_cpu_stressor:main
         args:
           - "-cpu=0.2"
           - "-duration=10s"
