@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: cpu-stressor-deployment
 spec:
-  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
