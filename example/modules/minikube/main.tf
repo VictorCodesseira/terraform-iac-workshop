@@ -10,7 +10,6 @@ terraform {
 resource "minikube_cluster" "cluster" {
   driver       = var.driver
   cluster_name = var.cluster_name
-  container_runtime = "containerd"
   addons = distinct(concat([
     "default-storageclass",
     "storage-provisioner"

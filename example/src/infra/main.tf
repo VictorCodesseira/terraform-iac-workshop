@@ -1,5 +1,7 @@
 module "minikube" {
   source = "../../modules/minikube"
+
+  extra_addons = ["metrics-server"]
 }
 
 locals {
@@ -17,29 +19,18 @@ module "argocd" {
 
   set_values = {
     "global.domain" = local.argocd_url
+    "configs.secret.argocdServerAdminPassword" = "$2y$10$zbDMnn5E2.Pw5mm853Jdj./KMHkG99y4zve7G3pQYVy9EyjXvoqvu"
   }
-}
-
-data "kubernetes_secret" "argocd_initial_admin_password" {
-  depends_on = [module.argocd]
-
-  metadata {
-    name     = "argocd-initial-admin-secret"
-    namespace = "argocd"
-  }
-}
-
-output "argocd_password" {
-  value = nonsensitive(data.kubernetes_secret.argocd_initial_admin_password.data["password"])
 }
 
 module "application" {
   source = "../../modules/argocd_application"
+  depends_on = [module.argocd]
 
-  name      = "example-app"
-  namespace = "myapp"
+  name      = "cpu-stressor"
+  namespace = "iac-workshop"
   app_source = {
-    repo_url        = "https://github.com/argoproj/argocd-example-apps.git"
-    path            = "guestbook"
+    repo_url        = "https://github.com/VictorCodesseira/terraform-iac-workshop.git"
+    path            = "example/manifests/application"
   }
 }

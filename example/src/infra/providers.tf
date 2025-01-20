@@ -46,8 +46,12 @@ provider "helm" {
 }
 
 provider "argocd" {
-  server_addr = local.argocd_url
-  username    = "admin"
-  password    = data.kubernetes_secret.argocd_initial_admin_password.data["password"]
-  insecure    = true
+  username     = "admin"
+  password     = "admin"
+  port_forward = true
+  kubernetes {
+    host = module.minikube.connection_info.host
+
+    cluster_ca_certificate = module.minikube.connection_info.cluster_ca_certificate
+  }
 }
