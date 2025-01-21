@@ -8,6 +8,7 @@ terraform {
 }
 
 resource "argocd_application" "app" {
+  wait = true
   metadata {
     name      = var.name
   }

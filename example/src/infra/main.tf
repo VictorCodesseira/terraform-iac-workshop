@@ -1,7 +1,7 @@
 module "minikube" {
   source = "../../modules/minikube"
 
-  extra_addons = ["metrics-server"]
+  extra_addons = ["metrics-server", "dashboard"]
 }
 
 locals {
@@ -34,5 +34,5 @@ module "application" {
     path            = "example/manifests/application"
   }
 
-  auto_sync = false
+  auto_sync = true
 }
