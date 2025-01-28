@@ -1,10 +1,23 @@
+# Terraform IAC Workshop
 
-docker-compose up -d
+This repo is the basis for some workshops that happened at SumUp about IaC. It goes into some simple implementations and more advanced full environments using localstack and minikube.
 
-brew install terraform minikube k9s
-pip3 install terraform-local
+## Setup
 
-tflocal init
-tflocal plan
-tflocal apply
+To run localstack:
 
+`docker-compose up -d`
+
+To install dependencies:
+
+`brew install terraform minikube kubectl k9s`
+
+To run terraform using localstack:
+
+`pip3 install terraform-local`
+
+`tflocal init`
+
+`tflocal plan`
+
+`tflocal apply`
