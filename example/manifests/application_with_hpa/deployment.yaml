@@ -16,7 +16,7 @@ spec:
       - name: cpu-stressor
         image: ghcr.io/victorcodesseira/k8s_pod_cpu_stressor:main
         args:
-          - "-cpu=0.2"
+          - "-cpu=0.1"
           - "-duration=10s"
           - "-forever"
         resources:
